@@ -50,4 +50,8 @@ let f = 100;
 let e;
 do{
     e = Number(prompt("Enter number "));
-}while(e!=f)
+}while(e!=f);
+
+let g = "jay kumawat";
+let h = g.length;
+console.log(h);
