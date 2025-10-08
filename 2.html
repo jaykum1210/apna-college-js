@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Muscle Map</title>
+  <style>
+    svg {
+      width: 400px;
+      cursor: pointer;
+    }
+    .muscle {
+      fill: #f4f4f4;
+      stroke: #333;
+      stroke-width: 1;
+      transition: fill 0.3s;
+    }
+    .muscle.active {
+      fill: #ff4d4d; /* highlight red */
+    }
+    text {
+      font-size: 10px;
+      font-family: Arial, sans-serif;
+      fill: black;
+      pointer-events: none; /* so clicks go to shape */
+    }
+  </style>
+</head>
+<body>
+  <h2>Interactive Muscle Map</h2>
+  
+  <svg viewBox="0 0 200 400">
+    <!-- Example shape for forearm -->
+    <g id="forearms">
+      <rect class="muscle" x="80" y="150" width="40" height="100"></rect>
+      <text id="forearms-text" x="82" y="245"></text> <!-- workout text inside -->
+    </g>
+  </svg>
+
+  <script>
+    const workouts = {
+      forearms: [
+        "Wrist Curls",
+        "Hammer Curls",
+        "Reverse Wrist Curls"
+      ]
+    };
+
+    document.querySelectorAll("g").forEach(group => {
+      group.addEventListener("click", () => {
+        const rect = group.querySelector(".muscle");
+        const text = group.querySelector("text");
+        const id = group.id;
+
+        // toggle highlight
+        rect.classList.toggle("active");
+
+        // toggle workout text
+        if (rect.classList.contains("active")) {
+          text.textContent = workouts[id].join(", ");
+        } else {
+          text.textContent = "";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

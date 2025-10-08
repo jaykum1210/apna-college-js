@@ -1,0 +1,35 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+body{
+    background-color: aquamarine;
+    text-align: center;
+}
+#head{
+    margin: 40px;
+    font-size: 42px;
+    font-family: sans-serif;
+}
+#main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    justify-self: center;
+    margin: 20px;
+}
+.box{
+    height: 150px;
+    width: 150px;
+    background-color: rgb(212, 200, 31);
+    border-radius: 20px;
+}
+button {
+    padding: 10px;
+    border: none;
+    background-color: navy;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: 700;
+}
